@@ -1,7 +1,7 @@
 #include "sphere.h"
 #include <cmath>
 
-Sphere::Sphere(Vec &center, Vec &surfColor, Vec &emission, float &rad, const float &trans = 0, const float &refl = 0){
+Sphere::Sphere(Vec &center, Vec &surfColor, const Vec &emission, float &rad, const float &trans, const float &refl){
     midpoint = center;
     surfaceColor = surfColor;
     lightEmission = emission;
@@ -11,7 +11,7 @@ Sphere::Sphere(Vec &center, Vec &surfColor, Vec &emission, float &rad, const flo
     reflection = refl;
 }
 
-bool Sphere::rayGeometryIntersect(Vec &originalRay, Vec &rayDirection, float &a, float &b){
+bool Sphere::rayGeometryIntersect(const Vec &originalRay, Vec &rayDirection, float &a, float &b){
     Vec diff = midpoint - originalRay;
     float t1 = diff.dotProduct(rayDirection);
     if( t1 < 0 ){return false;}
