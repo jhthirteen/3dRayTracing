@@ -24,7 +24,7 @@ Vec::Vec(float xV, float yV, float zV){
 Vec& Vec::norm(){ //recall: normalization of a vector is each entry is divided by its length 
     float normSquared = lengthSquared();
     if( normSquared > 0 ){ //assuring there is no division by zero
-        float reciprocal = 1/sqrt(normSquared); 
+        float reciprocal = 1 / sqrt(normSquared); 
         x *= reciprocal;
         y *= reciprocal;
         z *= reciprocal;
@@ -32,23 +32,23 @@ Vec& Vec::norm(){ //recall: normalization of a vector is each entry is divided b
     return *this;
 }
 
-Vec Vec::operator*(const float &f){ //recall: scaling a vector is multiplying each entry by said scalar
+Vec Vec::operator*(const float &f) const{ //recall: scaling a vector is multiplying each entry by said scalar
     return Vec(x*f, y*f, z*f);
 }
 
-Vec Vec::operator*(const Vec &v){
+Vec Vec::operator*(const Vec &v) const{
     return Vec(x*v.x, y*v.y, z*v.z);
 }
 
-float Vec::dotProduct(const Vec &v){
+float Vec::dotProduct(const Vec &v) const{
     return (x*v.x)+(y*v.y)+(z*v.z);
 }
 
-Vec Vec::operator-(const Vec &v){
+Vec Vec::operator-(const Vec &v) const{
     return Vec(x-v.x, y-v.y, z-v.z);
 }
 
-Vec Vec::operator+(const Vec &v){
+Vec Vec::operator+(const Vec &v) const{
     return Vec(x+v.x, y+v.y, z+v.z);
 }
 
@@ -66,15 +66,15 @@ Vec& Vec::operator*=(const Vec &v){
     return *this;
 }
 
-Vec Vec::operator-(){
+Vec Vec::operator-() const{
     return Vec(-x, -y, -z);
 }
 
-float Vec::length(){
+float Vec::length() const{
     return sqrt(lengthSquared());
 }
 
-float Vec::lengthSquared(){
+float Vec::lengthSquared() const{
     return (x*x)+(y*y)+(z*z);
 }
 

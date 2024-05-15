@@ -12,8 +12,8 @@ class Sphere{
         float transparency;
         float reflection;
 
-        Sphere(Vec &center, Vec &surfColor, const Vec &emission = 0, float &rad, const float &trans = 0, const float &refl = 0);
+        Sphere(const Vec &center, const float &r, const Vec &surfColor, const float &refl = 0, const float &transp = 0, const Vec &emission = 0);
 
-        bool rayGeometryIntersect(const Vec &originalRay, Vec &rayDirection, float &a, float &b);
+        bool rayGeometryIntersect(const Vec &originalRay, const Vec &rayDirection, float &a, float &b) const;
 };
 #endif

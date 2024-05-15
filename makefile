@@ -13,4 +13,4 @@ sphere.o:
 	g++ -c sphere.cpp
 
 clean:
-	rm *.o
+	rm -f *.o *.ppm tracer
