@@ -1,14 +1,20 @@
+#ifndef VEC_H
+#define VEC_H
+
 #include <fstream>
 #include <iostream>
 using namespace std;
+
 class Vec{
     public:
         float x;
         float y;
         float z;
+
         Vec();
         Vec(float xV);
         Vec(float xV, float yV, float zV);
+
         Vec& norm();
         Vec operator*(const float &f); //defines scalar multiplication -> f acts as a scalar
         Vec operator*(const Vec &v); //defines vector multiplication -> v acts as a vector
@@ -22,3 +28,4 @@ class Vec{
         float lengthSquared();
         friend ostream& operator<<(ostream &os, Vec &v);
 };
+#endif
